@@ -373,7 +373,7 @@ public class RegistrationLogin { // main class
         // Retrieve the message we just added to display its hash and timestamp
         Message added = messages.get(messages.size() - 1);
 
-        System.out.println("\n...............................");
+        System.out.println("\n-------------------------------");
         System.out.println("MESSAGE ID         : " + added.id);
         System.out.println("HASH               : " + added.hash);
         System.out.println("RECIPIENT NUMBER   : " + rec);
@@ -381,7 +381,7 @@ public class RegistrationLogin { // main class
         System.out.println("MESSAGE            : " + msg);
         System.out.println("STATUS             : " + status);
         System.out.println("TIME               : " + added.timestamp);
-        System.out.println("...............................");
+        System.out.println("-------------------------------------");
         System.out.println("Message successfully " + status + ".");
     }
 
@@ -404,10 +404,10 @@ public class RegistrationLogin { // main class
     // SHOW MESSAGES
     // Method to show messages — prints full details of every message in the master list
     public static void showMessages() {
-        System.out.println("\n~~~~~~~ALL MESSAGES~~~~~~~");
+        System.out.println("\n      ALL MESSAGES      ");
         if (messages.isEmpty()) {
             System.out.println("No messages found.");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("                         ");
             return;
         }
 
@@ -431,7 +431,7 @@ public class RegistrationLogin { // main class
             System.out.println("MESSAGE  : " + msg.content);
             System.out.println("STATUS   : " + msg.status);
             System.out.println("TIME     : " + msg.timestamp);
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("                               ");
         }
 
         System.out.println("\nTotal: " + messages.size()
@@ -527,9 +527,9 @@ public class RegistrationLogin { // main class
     public static void storedMessages() {
         boolean inSubMenu = true;
         while (inSubMenu) {
-            System.out.println("...............................................................");
+            System.out.println("                                                                 ");
             System.out.println("\n                  STORED MESSAGES MENU                      ");
-            System.out.println("...............................................................");
+            System.out.println("                                                                ");
             System.out.println("a. Display sender and recipient of all stored messages");
             System.out.println("b. Display the longest stored message");
             System.out.println("c. Search for a message by message ID");
@@ -537,7 +537,7 @@ public class RegistrationLogin { // main class
             System.out.println("e. Delete a message by using message hash");
             System.out.println("f. Display full message report");
             System.out.println("o. Back to main menu");
-            System.out.println(".............................................");
+            System.out.println("                                           ");
             System.out.print("Choose (a-f or o): ");
             String ch = input.nextLine().trim().toLowerCase();
             switch (ch) {
@@ -555,7 +555,7 @@ public class RegistrationLogin { // main class
 
     // a. Display sender and recipient of all stored messages
     public static void displayStoredSenderRecipient() {
-        System.out.println("\n~~~~Stored Messages: Recipient and Preview~~~~");
+        System.out.println("\n    Stored Messages: Recipient and Preview     ");
         boolean found = false;
         for (Message m : messages) {
             if (m.status.equals("Stored")) {
@@ -570,7 +570,7 @@ public class RegistrationLogin { // main class
         if (!found) {
             System.out.println("No stored messages found.");
         }
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("                                                ");
     }
 
     // b. Display the longest message (across all arrays)
@@ -585,9 +585,9 @@ public class RegistrationLogin { // main class
         if (longest.isEmpty()) {
             System.out.println("No messages available.");
         } else {
-            System.out.println("\n~~~ Longest Message ~~~");
+            System.out.println("\n    Longest Message    ");
             System.out.println(longest);
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("                              ");
         }
         return longest;
     }
@@ -631,7 +631,7 @@ public class RegistrationLogin { // main class
         if (results.isEmpty()) {
             System.out.println("No messages found for this recipient.");
         }
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("                                            ");
         return results;
     }
 
@@ -657,26 +657,26 @@ public class RegistrationLogin { // main class
 
     // f. Display full report — shows Message Hash, Recipient, Status, and Message
     public static void displayFullReport() {
-        System.out.println("\n.......... FULL MESSAGE REPORT ...........");
+        System.out.println("\n        FULL MESSAGE REPORT               ");
         if (messages.isEmpty()) {
             System.out.println("No messages available.");
-            System.out.println("........................................");
+            System.out.println("                                        ");
             return;
         }
         System.out.printf("%-20s %-16s %-10s %s%n",
                 "Message Hash", "Recipient", "Status", "Message");                                                                                                                                                                                                                                                                                                                                                                                                                                            
-        System.out.println("...............................................................");
+        System.out.println("                                                     ");
         for (Message m : messages) {
             String preview = m.content.length() > 35
                     ? m.content.substring(0, 35) + "..." : m.content;
             System.out.printf("%-20s %-16s %-10s %s%n",
                     m.hash, m.recipient, m.status, preview);
         }
-        System.out.println("................................................................");
+        System.out.println("                                                     ");
         System.out.println("Sent: " + sentMessages.size()
                 + " | Stored: " + storedMessages.size()
                 + " | Disregarded: " + disregardMessages.size());
-        System.out.println("...........................................");
+        System.out.println("                                                ");
     }
 
 
@@ -686,7 +686,7 @@ public class RegistrationLogin { // main class
     // into the storedMessages parallel array. No external JSON library is needed.
     
     public static void readJsonIntoArray() {
-        System.out.println("\n~~~~~Reading JSON file into array~~~~~");
+        System.out.println("\n      Reading JSON file into array      ");
         ArrayList<String> loadedFromFile = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(JSON_FILE))) {
@@ -737,7 +737,7 @@ public class RegistrationLogin { // main class
             System.out.println("Could not read '" + JSON_FILE
                     + "'. Please save messages first (option 5 -> yes).");
         }
-        System.out.println("...................................................");
+        System.out.println("                                              ");
     }
 
 
